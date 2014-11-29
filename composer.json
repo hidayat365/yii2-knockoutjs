@@ -1,0 +1,14 @@
+{
+    "name": "damiandennis/yii2-knockoutjs",
+    "description": "Knockout JS Library.",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Damian Dennis",
+            "email": "damiandennis@gmail.com"
+        }
+    ],
+    "require": {
+        "bower-asset/knockout": "v3.2.0"
+    }
+}
