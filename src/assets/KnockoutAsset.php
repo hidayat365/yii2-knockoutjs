@@ -5,7 +5,7 @@
  * Time: 6:05 AM
  */
 
-namespace damiandennis\stickymojo;
+namespace damiandennis\knockoutjs;
 
 class KnockoutAsset extends AssetBundle
 {

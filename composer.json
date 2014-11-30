@@ -10,5 +10,10 @@
     ],
     "require": {
         "bower-asset/knockout": "v3.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "damiandennis\\knockoutjs\\": "src/assets/"
+        }
     }
 }
