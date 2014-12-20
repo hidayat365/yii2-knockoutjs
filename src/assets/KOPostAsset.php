@@ -18,7 +18,7 @@ class KOPostAsset extends AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../../../../bower/knockout-postbox/src');
+        $this->setSourcePath(__DIR__ . '/../../../../bower/knockout-postbox/build');
         $this->setupAssets('js', ['knockout-postbox']);
         parent::init();
     }
