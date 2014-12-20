@@ -12,7 +12,7 @@ class KODeferredUpdatesAsset extends AssetBundle
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\web\YiiAsset',
-        'KnockoutAsset',
+        'damiandennis\knockoutjs\KnockoutAsset',
     ];
 
     public function init()
