@@ -9,7 +9,10 @@
         }
     ],
     "require": {
-        "bower-asset/knockout": "v3.2.0"
+        "bower-asset/knockout": "v3.2.0",
+        "bower-asset/knockout-bootstrap": "v0.3.1",
+        "bower-asset/knockout-postbox": "v0.4.2",
+        "npm-asset/knockout-deferred-updates": "v3.2.1"
     },
     "autoload": {
         "psr-4": {
