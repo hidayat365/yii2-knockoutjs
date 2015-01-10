@@ -10,7 +10,7 @@
     ],
     "require": {
         "bower-asset/knockout": "v3.2.0",
-        "npm-asset/knockstrap": "v1.2.0",
+        "npm-asset/knockstrap": "1.2.0",
         "bower-asset/knockout-postbox": "v0.4.2",
         "bower-asset/knockout.punches": "v0.5.0",
         "npm-asset/knockout-deferred-updates": "v3.2.1",
