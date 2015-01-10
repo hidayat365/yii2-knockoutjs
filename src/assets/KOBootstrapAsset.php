@@ -18,7 +18,7 @@ class KOBootstrapAsset extends AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../../../../npm/knockstrap/src');
+        $this->setSourcePath(__DIR__ . '/../../../../bower/knockout-bootstrap3-version/src');
         $this->setupAssets('js', ['knockout-bootstrap']);
         parent::init();
     }
