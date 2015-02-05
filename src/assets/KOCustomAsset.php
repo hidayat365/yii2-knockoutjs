@@ -27,25 +27,25 @@ class KOCustomAsset extends AssetBundle
         $required = new RequiredValidator();
         $bool = new BooleanValidator();
         $email = new EmailValidator();
-        $string = new StringValidator();
-        $number = new NumberValidator();
+        $string = new StringValidator(['min' => 1, 'max' => 1, 'length' => 1]);
+        $number = new NumberValidator(['min' => 1, 'max' => 1]);
         $integer = new NumberValidator(['integerOnly' => true]);
 
         $messages = Json::encode([
             'required' => ['default' => $required->message],
             'string'   => [
-                'default'  => $string->message,
-                'tooLong'  => $string->tooLong,
-                'tooShort' => $string->tooShort,
+                'default'  => Yii::t('yii', $string->message),
+                'tooLong'  => Yii::t('yii', $string->tooLong),
+                'tooShort' => Yii::t('yii', $string->tooShort),
             ],
             'integer'  => [
-                'default'     => $number->message,
-                'integerOnly' => $integer->message,
-                'tooSmall'    => $number->tooSmall,
-                'tooBig'      => $number->tooBig
+                'default'     => Yii::t('yii', $number->message),
+                'integerOnly' => Yii::t('yii', $integer->message),
+                'tooSmall'    => Yii::t('yii', $number->tooSmall),
+                'tooBig'      => Yii::t('yii', $number->tooBig)
             ],
-            'boolean'  => ['default' => $bool->message],
-            'email'    => ['default' => $email->message],
+            'boolean'  => ['default' => Yii::t('yii', $bool->message)],
+            'email'    => ['default' => Yii::t('yii', $email->message)],
         ]);
 
         $view->registerJs(
