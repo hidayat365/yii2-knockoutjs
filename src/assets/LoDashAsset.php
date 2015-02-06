@@ -17,7 +17,7 @@ class LoDashAsset extends AssetBundle
 
     public function init()
     {
-        $this->setSourcePath('@bower/lodash');
+        $this->setSourcePath('@npm/lodash');
         $this->setupAssets('js', ['lodash']);
         parent::init();
     }
