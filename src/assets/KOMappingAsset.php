@@ -18,7 +18,7 @@ class KOMappingAsset extends AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../../../../bower/knockout.mapping/');
+        $this->setSourcePath(__DIR__ . '/../../../../bower/knockout-mapping/build');
         $this->setupAssets('js', ['knockout.mapping']);
         parent::init();
     }
