@@ -17,7 +17,7 @@ class KODeferredUpdatesAsset extends AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../../../../npm/knockout-deferred-updates');
+        $this->setSourcePath('@npm/knockout-deferred-updates');
         $this->setupAssets('js', ['knockout-deferred-updates']);
         parent::init();
     }

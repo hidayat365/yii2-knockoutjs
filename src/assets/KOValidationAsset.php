@@ -18,7 +18,7 @@ class KOValidationAsset extends AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../../../../bower/ko-validation/dist');
+        $this->setSourcePath('@bower/ko-validation/dist');
         $this->setupAssets('js', ['knockout.validation']);
         $this->setSourcePath(__DIR__ . '/../js/');
         $this->setupAssets('js', ['ko.yii.validation']);

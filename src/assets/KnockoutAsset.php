@@ -12,7 +12,7 @@ class KnockoutAsset extends AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../../../../bower/knockout/dist');
+        $this->setSourcePath('@bower/knockout/dist');
         $this->setupAssets('js', ['knockout']);
         parent::init();
     }

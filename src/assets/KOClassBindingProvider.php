@@ -18,7 +18,7 @@ class KOClassBindingProvider extends AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../../../../bower/knockout-classBindingProvider/build');
+        $this->setSourcePath('@bower/knockout-classBindingProvider/build');
         $this->setupAssets('js', ['knockout-classBindingProvider']);
         parent::init();
     }

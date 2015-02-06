@@ -18,7 +18,7 @@ class KOPunchesAsset extends AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../../../../bower/knockout.punches');
+        $this->setSourcePath('@bower/knockout.punches');
         $this->setupAssets('js', ['knockout.punches']);
         parent::init();
     }
