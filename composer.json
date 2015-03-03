@@ -25,7 +25,8 @@
         "psr-4": {
             "damiandennis\\knockoutjs\\": [
                 "src/assets/",
-                "src/behaviors/"
+                "src/behaviors/",
+                "src/helpers/"
             ]
         }
     }

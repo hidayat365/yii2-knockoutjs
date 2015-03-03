@@ -17,7 +17,7 @@ class KOExportBehavior extends Behavior
         $data = [];
         $scenarios = $this->owner->scenarios();
         if (isset($scenarios[$scenario])) {
-            foreach($scenarios[$scenario] as $field) {
+            foreach ($scenarios[$scenario] as $field) {
                 $data[$field] = $this->owner->{$field};
             }
         }

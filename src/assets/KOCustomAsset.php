@@ -22,7 +22,7 @@ class KOCustomAsset extends AssetBundle
     public function init()
     {
         $this->setSourcePath(__DIR__ . '/../js/');
-        $this->setupAssets('js', ['ko.yii.validation']);
+        $this->setupAssets('js', ['custom-bindings', 'ko.yii.validation']);
         $view = Yii::$app->getView();
         $required = new RequiredValidator();
         $bool = new BooleanValidator();
