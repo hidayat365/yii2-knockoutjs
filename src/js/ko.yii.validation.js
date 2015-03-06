@@ -51,6 +51,11 @@ ko.yii.validation = function(messages) {
     ko.validation.rules['string'] = {
         validator: function (value, options) {
 
+            var defaultOptions = {
+                skipOnEmpty: true
+            };
+            options = ko.utils.extend(defaultOptions, options);
+
             if (options.skipOnEmpty && self.isEmpty(value)) {
                 return true;
             }
