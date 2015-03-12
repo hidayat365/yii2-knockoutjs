@@ -59,10 +59,11 @@ class KO
      */
     public static function prepareToJson($models, $relations = [], $scenario = 'default')
     {
+        $data = false;
         if (is_array($models)) {
             $relations = array_fill(0, count($models), $relations);
             $scenario = array_fill(0, count($models), $scenario);
-            return array_map(
+            $data = array_map(
                 function ($row, $relations, $scenario) {
                     return self::extractData($row, $relations, $scenario);
                 },
@@ -71,8 +72,9 @@ class KO
                 $scenario
             );
         } else {
-            return self::extractData($models, $relations, $scenario);
+            $data = self::extractData($models, $relations, $scenario);
         }
+        return $data;
     }
 
     protected static function extractData($model, $relations, $scenario)
@@ -131,9 +133,9 @@ class KO
                     if ($k == count($pathsOut) - 1) {
                         $newData['relations'] = isset($newData['relations']) ? $newData['relations'] : [];
                         $newData = &$newData['relations'];
+                        $newData[$i] = [];
+                        $newData = &$newData[$i];
                     }
-                    $newData[$i] = [];
-                    $newData = &$newData[$i];
                 }
                 foreach ($model->{$path} as $key => $relation) {
                     $newData[$key] = self::getModelDetails($relation, $scenario, self::getDirectRelations($paths));

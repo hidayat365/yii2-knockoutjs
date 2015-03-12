@@ -8,4 +8,11 @@ if (typeof ko !== 'undefined') {
             target(element);
         }
     };
+
+    ko.bindingHandlers.hidden = {
+        update: function(element, valueAccessor, allBindingsAccessor) {
+            var value = ko.utils.unwrapObservable(valueAccessor());
+            ko.bindingHandlers.visible.update(element, function() { return!value; });
+        }
+    };
 }
