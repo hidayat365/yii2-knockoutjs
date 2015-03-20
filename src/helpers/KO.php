@@ -164,7 +164,7 @@ class KO
             'relations'         => $relations,
             'rules'             => $model->rules(),
             'attributes'        => [],
-            'class'             => self::getPathlessClass($model),
+            'className'             => self::getPathlessClass($model),
             'primaryKey'        => $model->primaryKey()
         ];
 
