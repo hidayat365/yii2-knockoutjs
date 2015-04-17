@@ -9,6 +9,7 @@
 namespace damiandennis\knockoutjs;
 
 use yii\base\Exception;
+use yii\base\Model;
 use yii\helpers\Json;
 
 class KO
@@ -39,7 +40,7 @@ class KO
     /**
      * Turns models in json
      *
-     * @param yii\base\Model|array $models the models to convert.
+     * @param Model|array $models the models to convert.
      * @param array $relations an array of string which represent relations of relations. i.e restaurants.menus
      * @param string $scenario The scenario in which pulls back the required data for the model.
      * @return string an JSON encode string of the data.
@@ -52,7 +53,7 @@ class KO
     /**
      * Prepares models for conversion to json.
      *
-     * @param yii\base\Model|array $models the models to convert.
+     * @param Model|array $models the models to convert.
      * @param array $relations an array of string which represent relations of relations. i.e restaurants.menus
      * @param string $scenario The scenario in which pulls back the required data for the model.
      * @return string an JSON encode string of the data.
@@ -61,10 +62,8 @@ class KO
     {
         $data = false;
         if (is_array($models)) {
-            $relations = array_fill(0, count($models), $relations);
-            $scenario = array_fill(0, count($models), $scenario);
             $data = array_map(
-                function ($row, $relations, $scenario) {
+                function ($row, $relations, $scenario) use ($relations, $scenario) {
                     return self::extractData($row, $relations, $scenario);
                 },
                 $models,
@@ -77,6 +76,12 @@ class KO
         return $data;
     }
 
+    /**
+     * @param $model
+     * @param $relations
+     * @param $scenario
+     * @return array
+     */
     protected static function extractData($model, $relations, $scenario)
     {
         $data = self::getModelDetails($model, $scenario, self::getDirectRelations($relations));
@@ -90,6 +95,10 @@ class KO
         return $data;
     }
 
+    /**
+     * @param $relations
+     * @return array
+     */
     protected static function getDirectRelations($relations)
     {
         return array_flip(array_map(function ($item) {
@@ -98,24 +107,26 @@ class KO
         }, $relations));
     }
 
+    /**
+     * @param $model
+     * @return mixed
+     */
     protected static function getPathlessClass($model)
     {
         $class = explode('\\', get_class($model));
         return end($class);
     }
 
-
-
     /**
      * Recursively pulls back model data.
      *
      * @param array $paths The paths to recurse over.
-     * @param yii\base\Model $model The current model.
+     * @param Model $model The current model.
      * @param array $data The data to return
      * @param array $pathsOut The paths that have been converted.
      * @param string $scenario The scenario to receive.
      */
-    protected static function recursePath($paths, $model, &$data, $pathsOut, $scenario)
+    protected static function recursePath($paths, Model $model, &$data, $pathsOut, $scenario)
     {
         if ($paths) {
             $path = array_shift($paths);
@@ -148,7 +159,15 @@ class KO
         }
     }
 
-    public static function getModelDetails($model, $scenario, $relations)
+    /**
+     * Creates a data structure for use in knockout model class.
+     *
+     * @param Model $model The model to fetch required data for.
+     * @param string $scenario The scenario to get attributes (ignored if model has a toJSON method)
+     * @param array $relations The relations to get .
+     * @return array
+     */
+    public static function getModelDetails(Model $model, $scenario, $relations)
     {
         if (method_exists($model, 'toJSON')) {
             $attributes = $model->toJSON();
@@ -165,7 +184,6 @@ class KO
             'rules'             => $model->rules(),
             'attributes'        => [],
             'className'         => self::getPathlessClass($model),
-            'jsClass'           => self::getPathlessClass($model),
             'primaryKey'        => $model->primaryKey()
         ];
 
@@ -176,6 +194,12 @@ class KO
         return $data;
     }
 
+    /**
+     * Checks for a correct JSON string.
+     *
+     * @param string $string The json string to check.
+     * @return bool true if the json string is correct or false otherwise.
+     */
     public static function validJson($string)
     {
         json_decode($string);
