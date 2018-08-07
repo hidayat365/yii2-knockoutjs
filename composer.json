@@ -1,5 +1,5 @@
 {
-    "name": "damiandennis/yii2-knockoutjs",
+    "name": "hidayat365/yii2-knockoutjs",
     "description": "Knockout JS Library.",
     "license": "BSD-3-Clause",
     "authors": [
@@ -9,11 +9,11 @@
         }
     ],
     "require": {
-        "bower-asset/knockout": "v3.2.0",
-        "bower-asset/knockout-bootstrap": "v0.3.1",
-        "bower-asset/knockout-postbox": "v0.4.2",
-        "bower-asset/knockout.punches": "v0.5.0",
-        "npm-asset/knockout-deferred-updates": "v3.2.1"
+        "bower-asset/knockout": "v3.4.2",
+        "bower-asset/knockout-bootstrap": "v0.3.2",
+        "bower-asset/knockout-postbox": "v0.6.0",
+        "bower-asset/knockout.punches": "v0.5.1",
+        "npm-asset/knockout-deferred-updates": "v3.3.1"
     },
     "autoload": {
         "psr-4": {
